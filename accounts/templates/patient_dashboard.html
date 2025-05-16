@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ user.first_name }} {{ user.last_name }} (Patient)</h2>
+    {% if user.profile_pic %}
+        <img src="{{ user.profile_pic.url }}" width="150" height="150">
+    {% endif %}
+    <ul>
+        <li>Email: {{ user.email }}</li>
+        <li>Username: {{ user.username }}</li>
+        <li>Address: {{ user.address_line1 }}, {{ user.city }}, {{ user.state }} - {{ user.pincode }}</li>
+    </ul>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
