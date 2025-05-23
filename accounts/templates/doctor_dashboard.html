@@ -13,6 +13,17 @@
         <li>Username: {{ user.username }}</li>
         <li>Address: {{ user.address_line1 }}, {{ user.city }}, {{ user.state }} - {{ user.pincode }}</li>
     </ul>
+
+    <a href="{% url 'blog:create_post' %}">
+        <button>Create BlogPost</button>
+    </a><br>
+
+    <a href="{% url 'blog:my_posts' %}">
+        <button>View My Blogs</button>
+    </a><br>
+
+
     <a href="{% url 'logout' %}">Logout</a>
 </body>
 </html>
+
