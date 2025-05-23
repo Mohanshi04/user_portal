@@ -9,6 +9,8 @@ This is a simple Django application that allows two types of users — Patients 
 - Separate dashboards for Doctors and Patients
 - Login and logout functionality
 - Media handling for profile picture uploads
+- Blog app with creation and viewing of blog posts (Doctors can create and view, Patients can only view)
+- Role-based navigation and access control for Patients and Doctors
 
 ## User Types
 
@@ -26,6 +28,14 @@ This is a simple Django application that allows two types of users — Patients 
 - Confirm Password
 - Address: Line 1, City, State, Pincode
 - User Type (Patient or Doctor)
+
+## Blog Features
+
+- Doctors can create blog posts and view their own posts
+- Patients can view blog posts but cannot create them
+- Blog posts include title, content, and author information
+- Separate pages for creating blogs, viewing individual blog posts, and listing user's blog posts
+- Navigation buttons to switch between blog views and profile dashboards
 
 ## Setup Instructions
 
@@ -104,21 +114,47 @@ urlpatterns = [
 ```
 user_portal/
 ├── accounts/
+│   ├── migrations/
+│   │   └── __init__.py
 │   ├── templates/
-│   │   ├── signup.html
-│   │   ├── login.html
 │   │   ├── doctor_dashboard.html
-│   │   └── patient_dashboard.html
-│   ├── models.py
+│   │   ├── login.html
+│   │   ├── patient_dashboard.html
+│   │   └── signup.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── forms.py
-│   ├── views.py
-│   └── urls.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── blog/
+│   ├── migrations/
+│   │   └── __init__.py
+│   ├── templates/
+│   │   ├── create_post.html
+│   │   ├── my_posts.html
+│   │   └── view_post.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── media/
 ├── user_portal/
+│   ├── __init__.py
+│   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── media/
+├── db.sqlite3
 ├── manage.py
+├── requirements.txt
+
 ```
 
 ## Notes
