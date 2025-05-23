@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Blog Post</title>
+</head>
+<body>
+    <h1>Create a New Blog Post</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Publish</button>
+    </form>
+    <br>
+    <a href="{% url 'dashboard' %}"><button>Back to Profile</button></a>
+    <a href="{% url 'blog:my_posts' %}"><button>Back to My Posts</button></a>
+
+</body>
+</html>

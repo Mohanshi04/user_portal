@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog Posts</title>
+</head>
+<body>
+    <h1>My Blog Posts</h1>
+    <a href="{% url 'blog:create_post' %}"><button>Create New Post</button></a>
+    <a href="{% url 'dashboard' %}"><button>Back To Profile</button></a>
+    
+    {% for post in posts %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            <h2>{{ post.title }}</h2>
+            <img src="{{ post.image.url }}" alt="Blog Image" width="200">
+            <p>{{ post.summary|truncatechars:150 }}</p>
+            <p><strong>Category:</strong> {{ post.category }}</p>
+        </div>
+    {% empty %}
+        <p>You haven't created any blog posts yet.</p>
+    {% endfor %}
+</body>
+</html>
